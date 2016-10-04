@@ -2,7 +2,7 @@
 
 <div class="booyah-box col-xs-10 col-xs-offset-1">
   <h1> Add a new lesson </h1>
-  <%= simple_form_for @lesson, url: instructor_section_lessons_path(@section) do |f| %>
+  <%= simple_form_for @lesson, url: instructor_section_lessons_path(current_section) do |f| %>
     <%= f.input :title %>
     <%= f.input :subtitle %>
     <br />
