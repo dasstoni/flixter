@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'carrierwave-aws'
+
 gem 'mini_magick', '~> 4.3.1'
 
 gem 'figaro'
