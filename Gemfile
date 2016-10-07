@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'stripe'
+
 gem 'carrierwave-aws'
 
 gem 'mini_magick', '~> 4.3.1'

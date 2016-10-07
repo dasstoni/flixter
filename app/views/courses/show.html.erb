@@ -21,8 +21,20 @@
     <% if current_user && current_user.enrolled_in?(@course) %>
       <h3 class="label label-info"> You Are Enrolled! </h3>
     <% else %>
-      <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+      <% if @course.free? %>
+        <%= link_to 'Enroll', course_enrollments_path(@course), class: 'btn btn-primary', method: :post %>
+      <% else %>
+        <%= form_tag course_enrollments_path(@course) do %>
+          <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                  data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                  data-description="<%= @course.title %> (<%= number_to_currency @course.cost %>)"
+                  data-amount="<%= (@course.cost * 100).to_i %>"></script>
+        <% end %>
+      <% end %>
     <% end %>
+
+
+
   </div>
 
   <div class="col-sm-8 col-xs-12">
