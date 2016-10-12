@@ -11,6 +11,19 @@
       }
     });
   });
+
+  $(function() {
+    $('.sections').sortable({
+      update: function(event, ui) {
+        $.ajax({
+          type: 'PUT',
+          url: ui.item.data('update-url'),
+          dataType: 'json',
+          data: { section: {row_order_position: ui.item.index() } }
+        });
+      }
+    });
+  });
 </script>
 
 
@@ -28,9 +41,9 @@
   </div>
 
 
-  <ul>
+  <ul class="sections">
     <% current_course.sections.rank(:row_order).each do |section| %>
-      <li>
+      <li data-update-url="<%= instructor_section_path(section) %>">
         <%= section.title %>
         <%= link_to 'New Lesson', new_instructor_section_lesson_path(section), class: 'pull-right btn btn-primary btn-xs' %>
         <ul class="lessons">
