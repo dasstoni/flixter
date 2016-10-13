@@ -62,9 +62,48 @@
 
   <div id="footer">
     <div class="container">
-      <b> Teachers </b>
-      <br />
-      <%= link_to 'Teach a Course', new_instructor_course_path %>
+      <div class="col-xs-12 col-sm-3">
+        <b> Teachers </b>
+        <br />
+        <%= link_to 'Teach a Course', new_instructor_course_path %>
+        <br />
+        <%= link_to 'My Dashboard', dashboard_path %>
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        <b> About </b>
+        <br />
+        <%= link_to 'Team', '#' %>
+        <br />
+        <%= link_to 'Careers', '#' %>
+        <br />
+        <%= link_to 'Privacy Policy', '#' %>
+      </div>
+
+      <div class="col-xs-12 col-sm-3">
+        <b> Contact </b>
+        <br />
+        dstonikas@gmail.com
+        <br />
+        Firehoser
+        <br />
+        Duluth, GA 30097
+      </div>
+
+      <div class="col-xs-12 col-sm-3 social">
+        <b> Social </b>
+        <br />
+        <br />
+        <%= link_to 'http://github.com/dasstoni' do %>
+          <%= image_tag 'githup.png', class: 'social-button' %>
+        <% end %>
+        <%= link_to 'http://facebook.com' do %>
+          <%= image_tag 'test.jpg', class: 'social-button' %>
+        <% end %>
+        <%= link_to 'http://linkedin.com' do %>
+          <%= image_tag 'linkedin.png', class: 'social-button' %>
+        <% end %>
+      </div>
     </div>
   </div>
 
